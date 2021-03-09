@@ -73,7 +73,7 @@ module SolidusSitemap::SolidusDefaults
   end
 
   def add_taxon(taxon, options = {})
-    add(nested_taxons_path((taxon.permalink).gsub!('t/products', 't/categories/products')), options.merge(lastmod: taxon.products.last_updated)) if taxon.permalink.present?
+    add(nested_taxons_path('what'), options.merge(lastmod: taxon.products.last_updated)) if taxon.permalink.present?
     taxon.children.each { |child| add_taxon(child, options) }
   end
 
