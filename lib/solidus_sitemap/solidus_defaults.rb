@@ -73,8 +73,7 @@ module SolidusSitemap::SolidusDefaults
   end
 
   def add_taxon(taxon, options = {})
-    add(taxon.permalink.gsub!('t/products', 'categories/products'), options.merge(lastmod: taxon.products.last_updated)) if taxon.permalink.present?
-    taxon.children.each { |child| add_taxon(child, options) }
+    
   end
 
   def gem_available?(name)
